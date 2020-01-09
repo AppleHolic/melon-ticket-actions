@@ -1,0 +1,17 @@
+name: yerin
+on:
+  schedule:
+    - cron: '*/3 * * * *' # Every 3 minutes
+jobs:
+  job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check Tickets
+        uses: appleholic/melon-ticket-actions@v1.1.0
+        with:
+          product-id: 204890
+          schedule-id: 100002
+          seat-id: 1_0
+          slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          message: '<@U4CF18RKL> 티켓사세요'
